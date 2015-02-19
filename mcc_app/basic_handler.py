@@ -14,7 +14,7 @@ from decimal import Decimal
 
 class BaseHandler(restful.Resource):
     @staticmethod
-    def json_output(code=0, msg='success', data=None):
+    def json_output(data=None, code=0, msg='success'):
         return JSONResponse(code=code, msg=msg, data=data).to_json()
 
 
