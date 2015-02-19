@@ -16,17 +16,17 @@ def log_request_data():
          request.data, request.args, request.values))
 
 
-# @app.errorhandler(500)
-# @app.errorhandler(404)
-# def handle_error(error):
-#     response = {
-#         'code': 1000,
-#         'msg': 'Server raise error: %s' % (error.message,),
-#         'data': {}
-#     }
-#     current_app.logger.warning('Res----Time:~~~%r -------->  %r'
-#                                % (datetime.now().strftime("%Y-%m-%d %H:%M:%S"), response))
-#     return response, 200
+@app.errorhandler(500)
+@app.errorhandler(404)
+def handle_error(error):
+    response = {
+        'code': 1000,
+        'msg': 'Server raise error: %s' % (error.message,),
+        'data': {}
+    }
+    current_app.logger.warning('Res----Time:~~~%r -------->  %r'
+                               % (datetime.now().strftime("%Y-%m-%d %H:%M:%S"), response))
+    return response, 200
 
 
 if __name__ == '__main__':
